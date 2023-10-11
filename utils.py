@@ -9,6 +9,7 @@ import os
 
 global_dataset_url = '小学四年级学生身高体重数据.csv'
 
+
 # 读取原始数据集并划分数据
 def read_data(gender, dataset_url = global_dataset_url):
     df_stu = pd.read_csv(dataset_url) # 读取数据
@@ -22,14 +23,12 @@ def read_data(gender, dataset_url = global_dataset_url):
 def read_visualize_data(gender):
     X, y = read_data(gender) # 读取数据
 
-    # 设置支持中文字符的字体
-    custom_font = FontProperties(fname='SimHei.ttf')
-    
-    plt.rc('axes',unicode_minus=False) #解决坐标轴负号显示问题
-
     # 可视化训练数据
     plt.figure(figsize=(16,10), dpi=60)
+    custom_font = FontProperties(fname='SimHei.ttf') # 设置支持中文字符的字体
+    plt.rc('axes',unicode_minus=False) #解决坐标轴负号显示问题
     colors = {'偏低': 'green', '正常':'blue' , '偏高': 'red'} 
+    
     y = y.values.tolist()
     c = []
     for i in y:
@@ -50,24 +49,17 @@ def create_KNN(n_neighbors, X, y):
 
 def predict_data_visualize(gender, height, weight, K=5):
     X, y = read_data(gender)
-
-    # 创建KNN模型
-    model = create_KNN(5, X, y) 
-
-    # 输入的待预测数据
-    input_data = pd.DataFrame({'体重（千克）': [weight], '身高（厘米）': [height]})
-   
-    # 使用模型预测数据
-    prediction = model.predict(input_data)
+    model = create_KNN(5, X, y) # 创建KNN模型
+    input_data = pd.DataFrame({'体重（千克）': [weight], '身高（厘米）': [height]}) # 输入的待预测数据
+    prediction = model.predict(input_data) # 使用模型预测数据
 
     # 输出预测结果
     print("预测结果：该同学水平分类:", prediction[0])
 
     neighbors = model.kneighbors(input_data, return_distance=False) # 默认是5个最近邻，返回的是训练集中的index
-
+    
     plt.figure(figsize=(16,10), dpi=60)
-    # 设置支持中文字符的字体
-    custom_font = FontProperties(fname='SimHei.ttf')
+    custom_font = FontProperties(fname='SimHei.ttf') # 设置支持中文字符的字体
 
     colors = {'偏低': 'green', '正常':'blue' , '偏高': 'red'} 
     # 使用字典的get方法根据prediction[0]获取颜色值，如果键存在的话
