@@ -66,6 +66,8 @@ def predict_data_visualize(gender, height, weight, K=5):
     neighbors = model.kneighbors(input_data, return_distance=False) # 默认是5个最近邻，返回的是训练集中的index
 
     plt.figure(figsize=(16,10), dpi=60)
+    # 设置支持中文字符的字体
+    custom_font = FontProperties(fname='SimHei.ttf')
 
     colors = {'偏低': 'green', '正常':'blue' , '偏高': 'red'} 
     # 使用字典的get方法根据prediction[0]获取颜色值，如果键存在的话
@@ -82,8 +84,8 @@ def predict_data_visualize(gender, height, weight, K=5):
         plt.plot([X.iloc[i][0], input_data.iloc[0][0]], [X.iloc[i][1], input_data.iloc[0][1]], 
                     '-.', linewidth=0.6);    # 预测点与距离最近的 k 个样本的连线
         
-    plt.xlabel(X.columns[0],fontsize=20,loc='center')
-    plt.ylabel(X.columns[1],fontsize=20,loc='center')
-    plt.title('knn',fontsize=20,loc='center')
+    plt.xlabel(X.columns[0],fontsize=20,loc='center', fontproperties=custom_font)
+    plt.ylabel(X.columns[1],fontsize=20,loc='center', fontproperties=custom_font)
+    plt.title('knn分类模型',fontsize=20,loc='center', fontproperties=custom_font)
     # 保存图像到文件
     plt.savefig('scatter_plot_2.png')
