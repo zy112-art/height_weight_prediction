@@ -23,7 +23,7 @@ def read_visualize_data(gender):
     X, y = read_data(gender) # 读取数据
 
     # 设置支持中文字符的字体
-    font = FontProperties(fname='SimHei.ttf')
+    custom_font = FontProperties(fname='SimHei.ttf')
     
     plt.rc('axes',unicode_minus=False) #解决坐标轴负号显示问题
 
