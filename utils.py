@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import numpy as np
-
+import os
 
 global_dataset_url = '小学四年级学生身高体重数据.csv'
 
@@ -21,8 +21,13 @@ def read_data(gender, dataset_url = global_dataset_url):
 def read_visualize_data(gender):
     X, y = read_data(gender) # 读取数据
     
-    # 设置显示格式
-    plt.rc('font',family='simHei') #设置字体为黑体
+    # 获取项目文件夹的绝对路径
+    project_folder = os.path.dirname(os.path.abspath(__file__))
+    # 指定项目文件夹中的字体文件路径
+    font_path = os.path.join(project_folder, 'SimHei.ttf')
+    # 设置支持中文字符的字体
+    font = FontProperties(fname=font_path)
+    
     plt.rc('axes',unicode_minus=False) #解决坐标轴负号显示问题
 
     # 可视化训练数据
