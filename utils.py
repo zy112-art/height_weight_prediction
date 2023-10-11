@@ -21,13 +21,9 @@ def read_data(gender, dataset_url = global_dataset_url):
 # 可视化数据集中的数据，为学生自测数据描点做准备
 def read_visualize_data(gender):
     X, y = read_data(gender) # 读取数据
-    
-    # 获取项目文件夹的绝对路径
-    project_folder = os.path.dirname(os.path.abspath(__file__))
-    # 指定项目文件夹中的字体文件路径
-    font_path = os.path.join(project_folder, 'SimHei.ttf')
+
     # 设置支持中文字符的字体
-    font = FontProperties(fname=font_path)
+    font = FontProperties(fname='SimHei.ttf')
     
     plt.rc('axes',unicode_minus=False) #解决坐标轴负号显示问题
 
