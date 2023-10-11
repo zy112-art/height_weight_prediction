@@ -4,6 +4,8 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import numpy as np
+import tempfile
+import os
 
 
 global_dataset_url = '小学四年级学生身高体重数据.csv'
@@ -36,7 +38,11 @@ def read_visualize_data(gender):
     plt.xlabel(X.columns[0],fontsize=20,loc='center')
     plt.ylabel(X.columns[1],fontsize=20,loc='center')
     plt.title('散点图',fontsize=20,loc='center')
-    plt.show()
+    # 创建临时文件并保存图像
+    with tempfile.TemporaryDirectory() as tmpdir:
+        image_path = os.path.join(tmpdir, 'scatter_plot_1.png')
+        plt.savefig(image_path)
+        return image_path
 
 # 定义KNN模型
 def create_KNN(n_neighbors, X, y):
@@ -81,4 +87,8 @@ def predict_data_visualize(gender, height, weight, K=5):
     plt.xlabel(X.columns[0],fontsize=20,loc='center')
     plt.ylabel(X.columns[1],fontsize=20,loc='center')
     plt.title('knn',fontsize=20,loc='center')
-    plt.show()
+    # 创建临时文件并保存图像
+    with tempfile.TemporaryDirectory() as tmpdir:
+        image_path = os.path.join(tmpdir, 'scatter_plot_2.png')
+        plt.savefig(image_path)
+        return image_path
