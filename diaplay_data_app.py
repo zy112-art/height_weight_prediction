@@ -9,8 +9,16 @@ def visualize_data(gender):
         read_visualize_data("女生")
     return 'scatter_plot_1.png'
 
-# 创建 Gradio 接口
-markdown_txt = gr.Markdown("## 选择**性别**，查看小学四年级学生体测数据分布！")
-gender_choice = gr.Radio(["男生", "女生"], label="性别", info="请选择性别")
+with gr.Blocks() as demo:
+    gr.Markdown(
+    """
+    ## 选择**性别**，查看小学四年级学生体测数据分布！
+    """)
+    markdown_txt = gr.Markdown("")
+    gender_choice = gr.Radio(["男生", "女生"], label="性别", info="请选择性别")
+    gr.Interface(fn=visualize_data, inputs= gender_choice, outputs="image")
 
-gr.Interface(fn=visualize_data, inputs=[markdown_txt, gender_choice], outputs="image").launch()
+if __name__ == "__main__":
+    demo.launch()
+
+
