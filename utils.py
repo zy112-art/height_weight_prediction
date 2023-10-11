@@ -3,6 +3,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties
 import numpy as np
 import os
 
