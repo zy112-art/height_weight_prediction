@@ -4,8 +4,6 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import numpy as np
-import tempfile
-import os
 
 
 global_dataset_url = '小学四年级学生身高体重数据.csv'
@@ -85,8 +83,5 @@ def predict_data_visualize(gender, height, weight, K=5):
     plt.xlabel(X.columns[0],fontsize=20,loc='center')
     plt.ylabel(X.columns[1],fontsize=20,loc='center')
     plt.title('knn',fontsize=20,loc='center')
-    # 创建临时文件并保存图像
-    with tempfile.TemporaryDirectory() as tmpdir:
-        image_path = os.path.join(tmpdir, 'scatter_plot_2.png')
-        plt.savefig(image_path)
-        return image_path
+    # 保存图像到文件
+    plt.savefig('scatter_plot_2.png')
