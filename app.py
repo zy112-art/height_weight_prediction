@@ -20,7 +20,9 @@ def predict_and_visualize_data(height, weight, gender):
 # 创建 Gradio 接口
 gender_choice = gr.Radio(["男生", "女生"], label="性别", info="请选择性别")
 
-gr.Interface(fn=visualize_data, inputs=gender_choice, outputs="image").launch()
+demo_1 = gr.Interface(fn=visualize_data, inputs=gender_choice, outputs="image")
+
+demo_1.launch()
 
 
 # 创建 Gradio 接口
@@ -28,5 +30,5 @@ height = gr.Slider(50, 250, value=160.2, label="身高（厘米）", info="请�
 weight = gr.Slider(10, 200, value=44.1, label="体重（千克）", info="请选择介于10到200之间的数值")
 gender_choice = gr.Radio(["男生", "女生"], label="性别", info="请选择性别")
 
-gr.Interface(fn=predict_and_visualize_data, inputs=[height, weight, gender_choice], outputs="image").launch()
-
+demo_2 = gr.Interface(fn=predict_and_visualize_data, inputs=[height, weight, gender_choice], outputs="image")
+demo_2.launch()
