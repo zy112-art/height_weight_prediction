@@ -10,9 +10,15 @@ def predict_and_visualize_data(height, weight, gender):
     return 'scatter_plot_2.png'
 
 # 创建 Gradio 接口
-markdown_txt = gr.Markdown("## 输入自己测量的**身高**、**体重**数据，尝试让人工智能模型来帮你**预测**对应水平等级吧！")
-height = gr.Slider(50, 250, value=160.2, label="身高（厘米）", info="请选择介于50到250之间的数值")
-weight = gr.Slider(10, 200, value=44.1, label="体重（千克）", info="请选择介于10到200之间的数值")
-gender_choice = gr.Radio(["男生", "女生"], label="性别", info="请选择性别")
+with gr.Blocks() as demo:
+    gr.Markdown(
+    """
+    ## 输入自己测量的**身高**、**体重**数据，尝试让人工智能模型来帮你**预测**对应水平等级吧！
+    """)
+    gender_choice = gr.Radio(["男生", "女生"], label="性别", info="请选择性别")
+    height = gr.Slider(50, 250, value=160.2, label="身高（厘米）", info="请选择介于50到250之间的数值")
+    weight = gr.Slider(10, 200, value=44.1, label="体重（千克）", info="请选择介于10到200之间的数值")
+    gr.Interface(fn=predict_and_visualize_data, inputs=[height, weight, gender_choice], outputs="image")
 
-gr.Interface(fn=predict_and_visualize_data, inputs=[markdown_txt, height, weight, gender_choice], outputs="image").launch()
+if __name__ == "__main__":
+    demo.launch()
