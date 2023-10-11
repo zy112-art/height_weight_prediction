@@ -38,11 +38,9 @@ def read_visualize_data(gender):
     plt.xlabel(X.columns[0],fontsize=20,loc='center')
     plt.ylabel(X.columns[1],fontsize=20,loc='center')
     plt.title('散点图',fontsize=20,loc='center')
-    # 创建临时文件并保存图像
-    with tempfile.TemporaryDirectory() as tmpdir:
-        image_path = os.path.join(tmpdir, 'scatter_plot_1.png')
-        plt.savefig(image_path)
-        return image_path
+    # plt.show()
+    # 保存图像到文件
+    plt.savefig('scatter_plot_1.png')
 
 # 定义KNN模型
 def create_KNN(n_neighbors, X, y):
