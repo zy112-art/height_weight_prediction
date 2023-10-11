@@ -11,7 +11,7 @@ def visualize_data(gender):
 iface = gr.Interface(
     fn=visualize_data,
     inputs=gr.inputs.Dropdown(['男生', '女生'], label="选择性别"),
-    outputs="auto"
+    outputs="image"
 )
 iface.launch()
 
