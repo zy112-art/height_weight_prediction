@@ -35,9 +35,9 @@ def read_visualize_data(gender):
     for i in y:
         c.append(colors[str(i)])
     plt.scatter(X.iloc[:,0], X.iloc[:,1], color=c, s=100, cmap='cool') # 画出样本散点图
-    plt.xlabel(X.columns[0],fontsize=20,loc='center')
-    plt.ylabel(X.columns[1],fontsize=20,loc='center')
-    plt.title('散点图',fontsize=20,loc='center')
+    plt.xlabel(X.columns[0],fontsize=20,loc='center', fontproperties=custom_font)
+    plt.ylabel(X.columns[1],fontsize=20,loc='center', fontproperties=custom_font)
+    plt.title('散点图',fontsize=20,loc='center', fontproperties=custom_font)
     # plt.show()
     # 保存图像到文件
     plt.savefig('scatter_plot_1.png')
