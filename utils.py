@@ -40,7 +40,7 @@ def read_visualize_data(gender):
     plt.legend() # 添加图例
     plt.xlabel(X.columns[0],fontsize=20,loc='center', fontproperties=custom_font)
     plt.ylabel(X.columns[1],fontsize=20,loc='center', fontproperties=custom_font)
-    plt.title('散点图',fontsize=20,loc='center')
+    plt.title('散点图',fontsize=20,loc='center', fontproperties=custom_font)
     plt.show()
     # 保存图像到文件
     plt.savefig('scatter_plot_1.png')
