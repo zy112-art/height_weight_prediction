@@ -26,7 +26,7 @@ def read_visualize_data(gender):
     # 可视化训练数据
     plt.figure(figsize=(16,10), dpi=60)
     # 设置显示格式
-    plt.rc('font',family='simHei') #设置字体为黑体
+    custom_font = FontProperties(fname='SimHei.ttf') # 设置支持中文字符的字体
     plt.rc('axes',unicode_minus=False) #解决坐标轴负号显示问题
 
     colors = {'偏低': 'green', '正常':'blue' , '偏高': 'red'} 
