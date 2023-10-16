@@ -97,7 +97,7 @@ def predict_data_visualize(gender, height, weight, K=5):
         level_data = X[y == level]
         plt.scatter(level_data['体重（千克）'], level_data['身高（厘米）'], c=colors[level], marker=markers[level], label=level, s=90)
     
-    # plt.legend() # 添加图例
+    plt.legend(fontproperties=custom_font) # 添加图例
     # y = y.values.tolist()
     # c = []
     # for i in y:
