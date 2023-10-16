@@ -23,12 +23,12 @@ def read_data(gender, dataset_url = global_dataset_url):
 def read_visualize_data(gender):
     X, y = read_data(gender) # 读取数据
     
+    # 可视化训练数据
+    plt.figure(figsize=(16,10), dpi=60)
     # 设置显示格式
     plt.rc('font',family='simHei') #设置字体为黑体
     plt.rc('axes',unicode_minus=False) #解决坐标轴负号显示问题
 
-    # 可视化训练数据
-    plt.figure(figsize=(16,10), dpi=60)
     colors = {'偏低': 'green', '正常':'blue' , '偏高': 'red'} 
     markers = {'偏低': 'o', '正常':'s' , '偏高': '^'} 
 
