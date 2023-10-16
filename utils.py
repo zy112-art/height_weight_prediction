@@ -26,7 +26,7 @@ def read_visualize_data(gender):
     # 可视化训练数据
     plt.figure(figsize=(16,10), dpi=60)
     # 设置显示格式
-    custom_font = FontProperties(fname='SimHei.ttf') # 设置支持中文字符的字体
+    custom_font = FontProperties(fname='SimHei.ttf', size=16) # 设置支持中文字符的字体
     plt.rc('axes',unicode_minus=False) #解决坐标轴负号显示问题
 
     colors = {'偏低': 'green', '正常':'blue' , '偏高': 'red'} 
@@ -84,7 +84,7 @@ def predict_data_visualize(gender, height, weight, K=5):
     neighbors = model.kneighbors(input_data, return_distance=False) # 默认是5个最近邻，返回的是训练集中的index
     
     plt.figure(figsize=(16,10), dpi=60)
-    custom_font = FontProperties(fname='SimHei.ttf') # 设置支持中文字符的字体
+    custom_font = FontProperties(fname='SimHei.ttf', size=16) # 设置支持中文字符的字体
 
     colors = {'偏低': 'green', '正常':'blue' , '偏高': 'red'} 
     # 使用字典的get方法根据prediction[0]获取颜色值，如果键存在的话
