@@ -37,9 +37,9 @@ def read_visualize_data(gender):
         level_data = X[y == level]
         plt.scatter(level_data['体重（千克）'], level_data['身高（厘米）'], c=colors[level], marker=markers[level], label=level, s=90)
     
-    # plt.legend() # 添加图例
-    plt.xlabel(X.columns[0],fontsize=20,loc='center')
-    plt.ylabel(X.columns[1],fontsize=20,loc='center')
+    plt.legend(fontproperties=custom_font) # 添加图例
+    plt.xlabel(X.columns[0],fontsize=20,loc='center', fontproperties=custom_font)
+    plt.ylabel(X.columns[1],fontsize=20,loc='center', fontproperties=custom_font)
     plt.title('散点图',fontsize=20,loc='center')
     plt.show()
     # 保存图像到文件
