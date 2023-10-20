@@ -125,7 +125,7 @@ def predict_data_visualize(gender, height, weight, K=5):
 # 根据输入对*两个*数据集的KNN模型进行预测结果可视化
 def predict_less_data_visualize(gender, height, weight, K=5):
 # 更少的数据
-    X_1, y_1 = read_data(gender, dataset_url = 'teacher_project/utils/小四学生部分身高体重数据.csv')
+    X_1, y_1 = read_data(gender, dataset_url = '小四学生部分身高体重数据.csv')
     model_1 = create_KNN(5, X_1, y_1) # 创建KNN模型
     input_data_1 = pd.DataFrame({'体重（千克）': [weight], '身高（厘米）': [height]}) # 输入的待预测数据
     prediction_1 = model_1.predict(input_data_1) # 使用模型预测数据
