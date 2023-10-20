@@ -132,7 +132,7 @@ def predict_less_data_visualize(gender, height, weight, K=5):
 
     neighbors_1 = model_1.kneighbors(input_data_1, return_distance=False) # 默认是5个最近邻，返回的是训练集中的index
     plt.figure(figsize=(16,10), dpi=60)
-    custom_font = FontProperties(fname='teacher_project/utils/SimHei.ttf', size=16) # 设置支持中文字符的字体
+    custom_font = FontProperties(fname='SimHei.ttf', size=16) # 设置支持中文字符的字体
     colors = {'偏低': 'green', '正常':'blue' , '偏高': 'red'} 
     # 使用字典的get方法根据prediction[0]获取颜色值，如果键存在的话
     color = colors.get(prediction_1[0], 'black')
