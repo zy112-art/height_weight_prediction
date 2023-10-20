@@ -35,7 +35,8 @@ def read_visualize_data(gender):
     # 创建散点图，根据等级区分颜色和形状
     for level in y.unique():
         level_data = X[y == level]
-        plt.scatter(level_data['体重（千克）'], level_data['身高（厘米）'], c=colors[level], marker=markers[level], label=level, s=90)
+        # plt.scatter(level_data['体重（千克）'], level_data['身高（厘米）'], c=colors[level], marker=markers[level], label=level, s=90)
+        plt.scatter(level_data['体重（千克）'], level_data['身高（厘米）'], marker=markers[level], facecolors='none', edgecolors=colors[level], linewidth=2, label=level, s=90)
     
     plt.legend(prop=custom_font) # 添加图例
     plt.xlabel(X.columns[0],fontsize=20,loc='center', fontproperties=custom_font)
@@ -95,7 +96,8 @@ def predict_data_visualize(gender, height, weight, K=5):
     # 创建散点图，根据等级区分颜色和形状
     for level in y.unique():
         level_data = X[y == level]
-        plt.scatter(level_data['体重（千克）'], level_data['身高（厘米）'], c=colors[level], marker=markers[level], label=level, s=90)
+        # plt.scatter(level_data['体重（千克）'], level_data['身高（厘米）'], c=colors[level], marker=markers[level], label=level, s=90)
+        plt.scatter(level_data['体重（千克）'], level_data['身高（厘米）'], marker=markers[level], facecolors='none', edgecolors=colors[level], linewidth=2, label=level, s=90)
     
     plt.legend(prop=custom_font) # 添加图例
     # y = y.values.tolist()
