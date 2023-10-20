@@ -4,7 +4,7 @@ from utils import read_visualize_data, predict_data_visualize, predict_less_data
 # 第3个交互
 def predict_and_visualize_data(height, weight, gender):
     if gender == "男生":
-        image_1, p_1 = predict_datas_visualize("男生", height, weight)
+        image_1, p_1 = predict_data_visualize("男生", height, weight)
         image_2, p_2 = predict_less_data_visualize("男生", height, weight)
     elif gender == "女生":
         image_1, p_1 = predict_data_visualize("女生", height, weight)
