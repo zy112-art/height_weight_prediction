@@ -1,24 +1,6 @@
 import gradio as gr
 from utils import read_visualize_data, predict_data_visualize, predict_less_data_visualize, bmi_value
 
-# try:
-#     import gradio as gr
-# except ImportError:
-#     print("Package 'gradio' is not installed. Installing...")
-#     import subprocess
-#     subprocess.call(["pip", "install", "gradio"])
-#     print("Package 'gradio' has been installed.")
-#     # 重新尝试导入包
-    
-# 用于gradio公网代理服务和本机服务之间的网络代理通信
-import subprocess
-# 复制文件
-copy_command = "cp teacher_project/utils/frpc_linux_amd64 /usr/local/envs/ssenv/lib/python3.9/site-packages/gradio/frpc_linux_amd64_v0.2"
-subprocess.call(copy_command, shell=True)
-# 赋予可执行权限
-chmod_command = "chmod +x /usr/local/envs/ssenv/lib/python3.9/site-packages/gradio/frpc_linux_amd64_v0.2"
-subprocess.call(chmod_command, shell=True)
-
 # 第3个交互
 def predict_and_visualize_data(height, weight, gender):
     if gender == "男生":
